@@ -1,3 +1,5 @@
 ﻿Новая строка
 
 Hello, world!
+
+Hello, git!
