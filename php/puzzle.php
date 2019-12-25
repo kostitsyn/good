@@ -18,16 +18,19 @@
 				}
 			}
 		}
-		
+
 		function checkAnswers() {
 
 			checkAnswer("userAnswer1", ["сон", "сноведение"]);
 			checkAnswer("userAnswer2", ["морской", "укус акулы"]);
 			checkAnswer("userAnswer3", ["шахматный", "мертвый"]);
 
-			alert("Вы отгадали " + score + " загадок");
-
+			alert("Вы отгадали " + score + " загадки из 3");
+			
 		}
+
+
+		
 
 	</script>
 </head>
@@ -36,7 +39,7 @@
 <div class="content">
 <?php
 	include "menu.php";
-?>
+?>	
 
 <div class="contentWrap">
     <div class="content">
@@ -46,18 +49,19 @@
 
 			<div class="box">
 
-				<p>Что можно увидеть с закрытыми глазами?</p>
-				<input type="text" id="userAnswer1">
+				<form method="GET">
+					<p>Что можно увидеть с закрытыми глазами?</p>
+					<input type="text" id="userAnswer1">
 
-				<p>Какой болезнью никто не болеет на суше?</p>
-				<input type="text" id="userAnswer2">
+					<p>Какой болезнью никто не болеет на суше?</p>
+					<input type="text" id="userAnswer2">
 
-				<p>Какой конь не ест овса?</p>
-				<input type="text" id="userAnswer3">
+					<p>Какой конь не ест овса?</p>
+					<input type="text" id="userAnswer3">
 
-				<br>
-				<a href="#" onClick="checkAnswers();">Ответить</a>
-
+					<br>
+					<input type="submit" value="Ответить" name="">>
+				</form>
 			</div>
 
         </div>
@@ -68,7 +72,7 @@
 
 </div>
 <div class="footer">
-	Copyright &copy; Vasily Pupkin
+	Copyright &copy; Aleksandr Kostitsyn
 <div>
 
 
