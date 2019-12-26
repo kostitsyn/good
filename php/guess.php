@@ -63,10 +63,35 @@
 
 			<div class="box">
 
-				<p id="info">Угадайте число от 0 до 100</p>
-				<input type="text" id="userAnswer">
-				<br>
-				<a href="#" onClick="guess();" id="button">Начать</a>				
+				<?php
+					if(isset($_GET["userAnswer"])){
+						$answer = rand(1, 100);
+						$tryCount = 0;
+						$maxTryCount = 3;
+
+						$userAnswer = (int)$userAnswer;
+						for($i = 0; $i < $maxTryCount; $i++){
+							$userAnswer = $_GET["userAnswer"];
+							$tryCount++;
+							if($userAnswer == $answer){
+							echo 'Поздравляю, вы угадали!';
+							}else if($tryCount >= $maxTryCount){
+								echo 'Вы проиграли<br>Правильный ответ ' . $answer;
+							}else if($userAnswer < $answer){
+								echo 'Вы ввели слишком маленькое число<br>Попробуйте еще раз. Введите число от 1 до 100.<br>У вас осталось ' . ($maxTryCount - $tryCount) . ' попытки.';
+							}else if($userAnswer > $answer){
+								echo 'Вы ввели слишком большое число<br>Попробуйте еще раз. Введите число от 1 до 100.<br>У вас осталось ' . ($maxTryCount - $tryCount) . ' попытки.';
+							}
+						}		
+					}
+				?>
+
+				<form method="GET">
+					<p id="info">Угадайте число от 0 до 100</p>
+					<input type="text" name="userAnswer">
+					<br>
+					<input type="submit" value="Начать" name="">
+				</form>				
 			</div>
 
         </div>

@@ -71,11 +71,34 @@
 			<h1>Угадайка для двух игроков</h1>
 
 			<div class="box">
+				<?php
+					$answer = rand(1, 100);
+					$userAnswer = $_GET["userAnswer"];
+					$gamerNumber = "1";
+					if ($userAnswer == $answer){
+						echo '<b>Поздравляю, вы угадали! Победил игрок</b> ' . $gamerNumber;
+					}else if ($userAnswer > $answer){
+						if ($gamerNumber == "1"){
+							$gamerNumber = "2";
+						}else{
+							$gamerNumber = "1";
+						}echo 'Число слишком большое. Ходит игрок';
+					}else if($userAnswer < $answer){
+						if ($gamerNumber == "1"){
+							$gamerNumber = "2";
+						}else{
+							$gamerNumber = "1";
+						}
+					}echo 'Число слишком маленькое. Ходит игрок';
 
-				<p id="info">Угадайте число от 1 до 100. Ходит игрок 1</p>
-				<input type="text" id="userAnswer">
-				<br>
-				<a href="#" onClick="guess();" id="button">Начать</a>
+				?>
+
+				<form method="GET">
+					<p name="info">Угадайте число от 1 до 100. Ходит игрок 1</p>
+					<input type="text" name="userAnswer">
+					<br>
+					<input type="submit" value="Начать" name="">
+				</form>
 
 			</div>
 		</div>
